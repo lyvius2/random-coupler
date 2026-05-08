@@ -276,16 +276,66 @@ When the program starts, it checks for a `data` file. If the file exists and its
 
 ---
 
+## Development and Testing
+
+The application itself does not require external gems at runtime, but this repository includes **RSpec** for automated tests.
+
+```bash
+bundle install
+bundle exec rspec
+```
+
+If the `rspec` executable is not resolved correctly in your environment, you can run the test suite directly with Ruby:
+
+```bash
+ruby -rrspec/core -e 'exit RSpec::Core::Runner.run(["spec"])'
+```
+
+Current test coverage includes:
+
+- interactive add flow
+- list output
+- couple generation
+- group generation
+- constraint logic
+- expired record cleanup
+- reset commands
+
+---
+
 ## Project Structure
 
-```
-random_coupler/
+```text
+random-coupler/
 ├── coupler.rb      # Main program
 ├── run.sh          # Launcher for macOS/Linux (auto-installs Ruby 2.6 if missing)
 ├── run.bat         # Launcher for Windows (Ruby must be pre-installed)
+├── Gemfile         # Development/test dependency definition
 ├── .gitignore      # Git ignore rules
 ├── README.md       # This file (English)
-└── README_KR.md    # Korean version
+├── README_KR.md    # Korean version
+├── functions/
+│   ├── fn_add.rb
+│   ├── fn_clear.rb
+│   ├── fn_constraints.rb
+│   ├── fn_couple.rb
+│   ├── fn_group.rb
+│   ├── fn_init_couples.rb
+│   ├── fn_init_groups.rb
+│   ├── fn_init_people.rb
+│   └── fn_list.rb
+└── spec/
+    ├── spec_helper.rb
+    └── functions/
+        ├── fn_add_spec.rb
+        ├── fn_clear_spec.rb
+        ├── fn_constraints_spec.rb
+        ├── fn_couple_spec.rb
+        ├── fn_group_spec.rb
+        ├── fn_init_couples_spec.rb
+        ├── fn_init_groups_spec.rb
+        ├── fn_init_people_spec.rb
+        └── fn_list_spec.rb
 ```
 
 ---

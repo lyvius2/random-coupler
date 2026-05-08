@@ -274,16 +274,66 @@ Remaining: 1 couple record(s), 0 group record(s).
 
 ---
 
+## 개발 및 테스트
+
+애플리케이션 자체는 런타임에 외부 gem이 필요 없지만, 이 저장소에는 자동화 테스트용 **RSpec**이 포함되어 있습니다.
+
+```bash
+bundle install
+bundle exec rspec
+```
+
+환경에 따라 `rspec` 실행 파일을 찾지 못하는 경우에는 다음처럼 Ruby로 직접 테스트를 실행할 수 있습니다.
+
+```bash
+ruby -rrspec/core -e 'exit RSpec::Core::Runner.run(["spec"])'
+```
+
+현재 테스트는 다음 범위를 다룹니다.
+
+- 대화형 사람 등록 흐름
+- 목록 출력
+- 커플 생성
+- 그룹 생성
+- 제약 조건 로직
+- 만료 기록 정리
+- 초기화 명령어
+
+---
+
 ## 프로젝트 구조
 
-```
-random_coupler/
+```text
+random-coupler/
 ├── coupler.rb      # 메인 프로그램
 ├── run.sh          # macOS/Linux 실행 스크립트 (Ruby 2.6 없으면 자동 설치)
 ├── run.bat         # Windows 실행 스크립트 (Ruby 사전 설치 필요)
+├── Gemfile         # 개발/테스트 의존성 정의
 ├── .gitignore      # Git 제외 목록
 ├── README.md       # 영문 문서
-└── README_KR.md    # 한국어 문서 (현재 파일)
+├── README_KR.md    # 한국어 문서 (현재 파일)
+├── functions/
+│   ├── fn_add.rb
+│   ├── fn_clear.rb
+│   ├── fn_constraints.rb
+│   ├── fn_couple.rb
+│   ├── fn_group.rb
+│   ├── fn_init_couples.rb
+│   ├── fn_init_groups.rb
+│   ├── fn_init_people.rb
+│   └── fn_list.rb
+└── spec/
+    ├── spec_helper.rb
+    └── functions/
+        ├── fn_add_spec.rb
+        ├── fn_clear_spec.rb
+        ├── fn_constraints_spec.rb
+        ├── fn_couple_spec.rb
+        ├── fn_group_spec.rb
+        ├── fn_init_couples_spec.rb
+        ├── fn_init_groups_spec.rb
+        ├── fn_init_people_spec.rb
+        └── fn_list_spec.rb
 ```
 
 ---
