@@ -5,7 +5,7 @@
 [![Platform](https://img.shields.io/badge/platform-CLI-lightgrey?logo=gnometerminal&logoColor=white)](https://github.com/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/)
 
-> 한국어 문서는 [README_KR.md](README_KR.md)를 참고하세요.
+> [한국어(Korean) 문서](README_KR.md)
 
 A Ruby CLI tool that randomly pairs people into 1-on-1 couples while enforcing workspace and history-based constraints. Designed to work with **Ruby 2.6.10**.
 
